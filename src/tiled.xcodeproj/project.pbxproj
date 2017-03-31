@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		53B8A8341BCCE3DE00096DBF /* Tiled.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B8A8291BCCE3DE00096DBF /* Tiled.framework */; settings = {ASSET_TAGS = (); }; };
+		53B8A8341BCCE3DE00096DBF /* Tiled.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B8A8291BCCE3DE00096DBF /* Tiled.framework */; };
 		53B8A8391BCCE3DE00096DBF /* TiledTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B8A8381BCCE3DE00096DBF /* TiledTests.swift */; };
-		53B8A8471BCCE3F400096DBF /* DelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B8A8431BCCE3F400096DBF /* DelegateProxy.swift */; settings = {ASSET_TAGS = (); }; };
-		53B8A8481BCCE3F400096DBF /* TilingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B8A8441BCCE3F400096DBF /* TilingImageView.swift */; settings = {ASSET_TAGS = (); }; };
-		53B8A8491BCCE3F400096DBF /* TilingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B8A8451BCCE3F400096DBF /* TilingScrollView.swift */; settings = {ASSET_TAGS = (); }; };
-		53B8A84A1BCCE3F400096DBF /* TilingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B8A8461BCCE3F400096DBF /* TilingView.swift */; settings = {ASSET_TAGS = (); }; };
+		53B8A8471BCCE3F400096DBF /* DelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B8A8431BCCE3F400096DBF /* DelegateProxy.swift */; };
+		53B8A8481BCCE3F400096DBF /* TilingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B8A8441BCCE3F400096DBF /* TilingImageView.swift */; };
+		53B8A8491BCCE3F400096DBF /* TilingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B8A8451BCCE3F400096DBF /* TilingScrollView.swift */; };
+		53B8A84A1BCCE3F400096DBF /* TilingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B8A8461BCCE3F400096DBF /* TilingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,18 +151,20 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Benjamin de Jager";
 				TargetAttributes = {
 					53B8A8281BCCE3DE00096DBF = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0830;
 					};
 					53B8A8321BCCE3DE00096DBF = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
-			buildConfigurationList = 53B8A8231BCCE3DE00096DBF /* Build configuration list for PBXProject "Tiled" */;
+			buildConfigurationList = 53B8A8231BCCE3DE00096DBF /* Build configuration list for PBXProject "tiled" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -241,8 +243,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -289,8 +293,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -310,6 +316,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -321,6 +328,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -332,6 +340,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -339,6 +348,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -349,6 +359,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.m0rph3v5.Tiled;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -359,6 +370,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.m0rph3v5.TiledTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -369,13 +381,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.m0rph3v5.TiledTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		53B8A8231BCCE3DE00096DBF /* Build configuration list for PBXProject "Tiled" */ = {
+		53B8A8231BCCE3DE00096DBF /* Build configuration list for PBXProject "tiled" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				53B8A83B1BCCE3DE00096DBF /* Debug */,
@@ -391,6 +404,7 @@
 				53B8A83F1BCCE3DE00096DBF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		53B8A8401BCCE3DE00096DBF /* Build configuration list for PBXNativeTarget "TiledTests" */ = {
 			isa = XCConfigurationList;
@@ -399,6 +413,7 @@
 				53B8A8421BCCE3DE00096DBF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

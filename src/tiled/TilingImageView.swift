@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class TilingImageView: UIImageView {
+open class TilingImageView: UIImageView {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -18,18 +18,18 @@ public class TilingImageView: UIImageView {
       fatalError("init(coder:) has not been implemented")
   }
   
-  var thumbUrl: NSURL! {
+  var thumbUrl: URL! {
     didSet {
-      let urlSession = NSURLSession()
-      urlSession.dataTaskWithURL(thumbUrl) { (data, response, error) in
+      let urlSession = URLSession()
+      urlSession.dataTask(with: thumbUrl, completionHandler: { (data, response, error) in
         guard error != nil else {
           print("failed fetching thumb")
           return
         }
 
-        self.contentMode = UIViewContentMode.ScaleAspectFit
+        self.contentMode = UIViewContentMode.scaleAspectFit
         self.image = UIImage(data: data!)
-      }
+      }) 
     }
   }
 }

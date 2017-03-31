@@ -10,19 +10,19 @@ import UIKit
 import QuartzCore
 
 public protocol TilingViewDataSource {
-  func tilingView(tilingView: TilingView, imageForColumn column: Int, andRow row: Int, forScale scale: CGFloat) -> UIImage?
+  func tilingView(_ tilingView: TilingView, imageForColumn column: Int, andRow row: Int, forScale scale: CGFloat) -> UIImage?
 }
 
-public class TilingView: UIView {
+open class TilingView: UIView {
   
-  public var dataSource : TilingViewDataSource!
-  public var levelsOfDetail : Int = 0 {
+  open var dataSource : TilingViewDataSource!
+  open var levelsOfDetail : Int = 0 {
     didSet {
       let tiledLayer = self.layer as! CATiledLayer
       tiledLayer.levelsOfDetail = levelsOfDetail
     }
   }
-  public var tileSize : CGSize = CGSizeZero {
+  open var tileSize : CGSize = CGSize.zero {
     didSet {
       let tiledLayer = self.layer as! CATiledLayer
       tiledLayer.tileSize = tileSize
@@ -36,12 +36,12 @@ public class TilingView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    self.backgroundColor = UIColor.clearColor()
+    self.backgroundColor = UIColor.clear
   }
   
   // MARK: overrides
   
-  override public func drawRect(rect: CGRect) {
+  override open func draw(_ rect: CGRect) {
     
     let context = UIGraphicsGetCurrentContext()
     
@@ -57,12 +57,12 @@ public class TilingView: UIView {
     // original image area. But this is okay, because the big blurry image we're drawing
     // here will be scaled way down before it is displayed.)
     
-    let contextTransform = CGContextGetCTM(context)
-    let scaleX = contextTransform.a
-    let scaleY = contextTransform.d
+    let contextTransform = context?.ctm
+    let scaleX = contextTransform?.a
+    let scaleY = contextTransform?.d
     
-    tileSize.width /= scaleX
-    tileSize.height /= -scaleY
+    tileSize.width /= scaleX!
+    tileSize.height /= -scaleY!
     
     // calculate the rows and columns of tiles that intersect the rect we have been asked to draw
     let firstCol = Int(floorf(Float(rect.minX / tileSize.width)))
@@ -77,20 +77,20 @@ public class TilingView: UIView {
 
         // if the tile would stick outside of our bounds, we need to truncate it so as
         // to avoid stretching out the partial tiles at the right and bottom edges
-        tileRect = self.bounds.intersect(tileRect)
-        if let tile = dataSource.tilingView(self, imageForColumn: col, andRow: row, forScale: scaleX) {
-          tile.drawInRect(tileRect)
+        tileRect = self.bounds.intersection(tileRect)
+        if let tile = dataSource.tilingView(self, imageForColumn: col, andRow: row, forScale: scaleX!) {
+          tile.draw(in: tileRect)
         }
       }
     }
     
   }
   
-  override public class func layerClass() -> AnyClass {
+  override open class var layerClass : AnyClass {
     return CATiledLayer.self
   }
   
-  override public var contentScaleFactor : CGFloat {
+  override open var contentScaleFactor : CGFloat {
     didSet {
       super.contentScaleFactor = 1
     }

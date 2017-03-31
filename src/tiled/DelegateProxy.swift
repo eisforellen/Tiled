@@ -11,25 +11,25 @@ import UIKit
 class DelegateProxy: NSObject, UIScrollViewDelegate {
   weak var userDelegate: UIScrollViewDelegate?
   
-  override func respondsToSelector(aSelector: Selector) -> Bool {
-    return super.respondsToSelector(aSelector) || userDelegate?.respondsToSelector(aSelector) == true
+  override func responds(to aSelector: Selector) -> Bool {
+    return super.responds(to: aSelector) || userDelegate?.responds(to: aSelector) == true
   }
   
-  override func forwardingTargetForSelector(aSelector: Selector) -> AnyObject? {
-    if userDelegate?.respondsToSelector(aSelector) == true {
+  override func forwardingTarget(for aSelector: Selector) -> Any? {
+    if userDelegate?.responds(to: aSelector) == true {
       return userDelegate
     }
     else {
-      return super.forwardingTargetForSelector(aSelector)
+      return super.forwardingTarget(for: aSelector)
     }
   }
   
-  func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+  func viewForZooming(in scrollView: UIScrollView) -> UIView? {
     guard let scrollView = scrollView as? TilingScrollView else { return nil }
-    return scrollView.viewForZoomingInScrollView(scrollView)
+    return scrollView.viewForZooming(in: scrollView)
   }
 
-  func scrollViewDidScroll(scrollView: UIScrollView) {
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
 //    scrollView.didScroll()
 //    _userDelegate?.scrollViewDidScroll?(scrollView)
   }
